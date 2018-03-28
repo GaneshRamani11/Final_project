@@ -1,0 +1,186 @@
+<html>
+<head>
+	<title> Random Objects Generation </title>
+	<style>
+        body{
+            background-image: url("BG.jpg");
+        }
+        h4{
+            text-align: center;
+            font-family: cursive;
+            color: blue;
+			font-size: 30px;
+        }
+        canvas{
+            background-color: black;
+        }
+        .myButton {
+            -moz-box-shadow: 3px 4px 0px 0px #AB2727;
+            -webkit-box-shadow: 3px 4px 0px 0px #AB2727;
+            box-shadow: 3px 4px 0px 0px #AB2727;
+            background-color: #AB2727;
+            -moz-border-radius: 18px;
+            -webkit-border-radius: 18px;
+            border-radius: 18px;
+            border: 1px solid #AB2727;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 17px;
+            padding: 7px 25px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #2f6627;
+
+            vertical-align: middle;
+        }
+
+        .myButton:hover {
+            background-color: #AB2727;
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+		option{
+			font-family: cursive;
+			margin-left: auto ;
+            position: absolute;
+			top: 10%;
+			left: 50%;
+		}
+		select{
+			font-family: cursive;
+			border: solid 2px blue;
+		}
+	input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 10%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 10%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+input[type=range]::-moz-range-track {
+  width: 10%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+		output{
+			border : solid 1px black;
+			border-spacing: inherit;
+			padding: 2px;
+			color: blue;
+			font-size: 25px;
+		}
+
+
+    </style>
+	</head>
+	<body>
+		<script src="Random_cube.js"></script>
+		<script src="http://threejs.org/build/three.min.js"></script>
+<script src="TrackballControls.js"></script>
+<script src="OrbitControls.js"></script>
+	<h4> Select Object and Iteration </h4>
+		<div>
+		<select id="Object">
+			<option value="select" selected> Select a Design </option>
+		<option id="Object1" text="cube"> Cube </option>
+			<option id="Object1" text="Sphere"> Sphere </option>
+			<option id="Object1" text="Cylinder"> Cylinder </option>
+			<option id="Object1" text="Cone"> Cone </option>
+		</select>
+			<input type="color" name="favcolor" id="Colour" value="#ff0000">
+			<br>
+			<br>
+			 <form name="Form field">
+    <input type="range" name="ageInputName" id="IterId" value="1" min="1" max="100" oninput="Iterations.value = IterId.value">
+    <output name="ageOutputName" id="Iterations">1</output>
+</form>
+			<button class="myButton" onclick="Random_cube();">Submit</button>
+		<br>
+		<br>
+		<canvas width="1600" height="600" id="Mycanvas"></canvas>
+		<br>
+		<br>
+			</div>
+		<a href="Main_page.html"><button class="myButton" onclick="Main_page.html">Main Page</button></a>
+	</body>
+</html>
